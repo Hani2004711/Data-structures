@@ -1,0 +1,5 @@
+int[] originalArray = {1, 2, 3, 4, 5};
+int[] backupArray = new int[originalArray.length];
+
+// استنساخ المصفوفة الأصلية إلى المصفوفة الاحتياطية
+System.arraycopy(originalArray, 0, backupArray, 0, originalArray.length);
