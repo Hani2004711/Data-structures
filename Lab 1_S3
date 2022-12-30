@@ -1,0 +1,20 @@
+import java.util.Random;
+
+public class Main {
+  public static void main(String[] args) {
+    // قم بإنشاء مصفوفة مع عدد معين من العناصر
+    int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+    // قم بإنشاء كائن Random لتوليد أرقام عشوائية
+    Random random = new Random();
+
+    // التكرار مرة واحدة للتحديد وإزالة عنصر مصفوفة عشوائي
+    int index = random.nextInt(arr.length); // توليد رقم عشوائي من 0 إلى عدد العناصر في المصفوفة
+    arr = removeElement(arr, index); // استدعاء الدالة removeElement لإزالة العنصر
+
+    // التكرار مرة أخرى للتحديد وإزالة عنصر مصفوفة عشوائي
+    index = random.nextInt(arr.length); // توليد رقم عشوائي من 0 إلى عدد العناصر في المصفوفة
+    arr = removeElement(arr, index); // استدعاء الدالة removeElement لإزالة العنصر
+
+    // التكرار مرة ثالثة للتحديد وإزالة عنصر مصفوفة عشوائي
+    index = random.nextInt(arr.length); //
