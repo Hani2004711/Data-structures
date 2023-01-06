@@ -1,0 +1,29 @@
+class SinglyLinkedList {
+  private static class Node {
+    private int data;
+    private Node next;
+
+    private Node(int data) {
+      this.data = data;
+    }
+  }
+
+  private Node head;
+
+  // Other methods for the SinglyLinkedList class go here
+
+  public Node findSecondToLastNode() {
+    // Return null if the list has fewer than two nodes
+    if (head == null || head.next == null) {
+      return null;
+    }
+
+    // Find the second-to-last node
+    Node secondToLast = head;
+    while (secondToLast.next.next != null) {
+      secondToLast = secondToLast.next;
+    }
+
+    return secondToLast;
+  }
+}
