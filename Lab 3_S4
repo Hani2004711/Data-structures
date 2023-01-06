@@ -1,0 +1,18 @@
+import java.util.Arrays;
+
+public class Main {
+  public static void main(String[] args) {
+    // Create the first array
+    int[] array1 = {1, 2, 3};
+
+    // Create the second array
+    int[] array2 = {1, 2, 3};
+
+    // Create the third array
+    int[] array3 = {3, 2, 1};
+
+    // Test the arrays for equivalence
+    System.out.println("array1 and array2 are equal: " + Arrays.equals(array1, array2));
+    System.out.println("array1 and array3 are equal: " + Arrays.equals(array1, array3));
+  }
+}
