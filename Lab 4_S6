@@ -1,0 +1,39 @@
+class SinglyLinkedList {
+  private static class Node {
+    private int data;
+    private Node next;
+
+    private Node(int data) {
+      this.data = data;
+    }
+  }
+
+  private Node head;
+
+  // Other methods for the SinglyLinkedList class go here
+
+  public static SinglyLinkedList concatenate(SinglyLinkedList L, SinglyLinkedList M) {
+    System.out.println("Concatenating lists L and M...");
+
+    // Return M if L is empty
+    if (L.head == null) {
+      System.out.println("List L is empty. Returning list M.");
+      return M;
+    }
+
+    // Find the last node in L
+    System.out.println("Finding the last node in list L...");
+    Node last = L.head;
+    while (last.next != null) {
+      last = last.next;
+    }
+
+    // Concatenate M to the end of L
+    System.out.println("Concatenating list M to the end of list L...");
+    last.next = M.head;
+
+    // Return L
+    System.out.println("Returning list L.");
+    return L;
+  }
+}
