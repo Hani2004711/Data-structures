@@ -1,0 +1,9 @@
+Node previous = null;
+Node current = firstNode;
+while (current != null) {
+  previous = current;
+  current = current.next;
+}
+if (previous == null) {
+  // the second-to-last node is the first node
+}
