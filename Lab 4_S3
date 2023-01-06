@@ -1,0 +1,22 @@
+class SinglyLinkedList {
+  private static class Node {
+    private int data;
+    private Node next;
+
+    private Node(int data) {
+      this.data = data;
+    }
+  }
+
+  private Node head;
+
+  public int size() {
+    int size = 0;
+    Node current = head;
+    while (current != null) {
+      size++;
+      current = current.next;
+    }
+    return size;
+  }
+}
