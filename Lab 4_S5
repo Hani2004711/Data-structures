@@ -1,0 +1,33 @@
+class SinglyLinkedList {
+  private static class Node {
+    private int data;
+    private Node next;
+
+    private Node(int data) {
+      this.data = data;
+    }
+  }
+
+  private Node head;
+
+  // Other methods for the SinglyLinkedList class go here
+
+  public static SinglyLinkedList concatenate(SinglyLinkedList L, SinglyLinkedList M) {
+    // Return M if L is empty
+    if (L.head == null) {
+      return M;
+    }
+
+    // Find the last node in L
+    Node last = L.head;
+    while (last.next != null) {
+      last = last.next;
+    }
+
+    // Concatenate M to the end of L
+    last.next = M.head;
+
+    // Return L
+    return L;
+  }
+}
