@@ -1,0 +1,8 @@
+public void rotate() {
+    if (head != null && head.next != null) {
+        Node temp = head.next;
+        head.next = temp.next;
+        temp.next = head;
+        head = temp;
+    }
+}
