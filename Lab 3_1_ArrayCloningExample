@@ -1,0 +1,35 @@
+public class ArrayCloningExample {
+    
+    public static void main(String[] args) {
+        // تعريف المصفوفة الأولى
+        int[] arr1 = {1, 2, 3, 4, 5};
+        
+        // إنشاء نسخة عميقة من المصفوفة الأولى
+        int[] arr2 = arr1.clone();
+        
+        // طباعة عناصر المصفوفة الأولى
+        System.out.println("Original Array: " + Arrays.toString(arr1));
+        
+        // طباعة عناصر المصفوفة المنسوخة
+        System.out.println("Cloned Array: " + Arrays.toString(arr2));
+        
+        // تغيير قيمة بعض العناصر في المصفوفة الأولى
+        arr1[0] = 100;
+        arr1[2] = 300;
+        
+        // طباعة عناصر المصفوفة الأولى بعد التغيير
+        System.out.println("Original Array after modification: " + Arrays.toString(arr1));
+        
+        // طباعة عناصر المصفوفة المنسوخة بعد تغيير المصفوفة الأولى
+        System.out.println("Cloned Array after modification: " + Arrays.toString(arr2));
+    }
+}
+
+
+
+
+
+Original Array: [1, 2, 3, 4, 5]
+Cloned Array: [1, 2, 3, 4, 5]
+Original Array after modification: [100, 2, 300, 4, 5]
+Cloned Array after modification: [1, 2, 3, 4, 5]
