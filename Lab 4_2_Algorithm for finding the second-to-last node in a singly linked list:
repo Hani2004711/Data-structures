@@ -1,0 +1,9 @@
+public Node findSecondToLast() {
+    Node current = head;
+    Node previous = null;
+    while (current != null && current.next != null) {
+        previous = current;
+        current = current.next;
+    }
+    return previous;
+}
