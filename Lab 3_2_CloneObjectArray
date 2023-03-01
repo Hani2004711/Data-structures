@@ -1,0 +1,23 @@
+class Person {
+    String name;
+    int age;
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public Person clone() throws CloneNotSupportedException {
+        return (Person) super.clone();
+    }
+}
+
+public class CloneObjectArray {
+    public static void main(String[] args) throws CloneNotSupportedException {
+        Person[] arr1 = {new Person("John", 30), new Person("Mary", 25)};
+        Person[] arr2 = arr1.clone();
+        arr2[0].name = "Jane";
+        System.out.println(Arrays.toString(arr1));
+        System.out.println(Arrays.toString(arr2));
+    }
+}
