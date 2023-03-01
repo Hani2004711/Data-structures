@@ -1,0 +1,18 @@
+public boolean equals(SinglyLinkedList other) {
+    if (other == null) {
+        return false;
+    }
+    if (size() != other.size()) {
+        return false;
+    }
+    Node current = head;
+    Node otherCurrent = other.head;
+    while (current != null && otherCurrent != null) {
+        if (!current.data.equals(otherCurrent.data)) {
+            return false;
+        }
+        current = current.next;
+        otherCurrent = otherCurrent.next;
+    }
+    return true;
+}
