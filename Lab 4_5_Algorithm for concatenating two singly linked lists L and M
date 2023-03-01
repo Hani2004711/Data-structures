@@ -1,0 +1,20 @@
+public SinglyLinkedList concatenate(SinglyLinkedList L, SinglyLinkedList M) {
+    if (L == null) {
+        return M;
+    }
+    if (M == null) {
+        return L;
+    }
+    SinglyLinkedList result = new SinglyLinkedList();
+    Node current = L.head;
+    while (current != null) {
+        result.addLast(current.data);
+        current = current.next;
+    }
+    current = M.head;
+    while (current != null) {
+        result.addLast(current.data);
+        current = current.next;
+    }
+    return result;
+}
