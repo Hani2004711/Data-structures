@@ -1,0 +1,22 @@
+import java.util.Stack;
+
+public class StackUtils {
+
+    public static void removeAll(Stack stack) {
+        if (!stack.isEmpty()) {
+            stack.pop();
+            removeAll(stack);
+        }
+    }
+
+    public static void main(String[] args) {
+        Stack<Integer> stack = new Stack<>();
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+
+        System.out.println("Before removal: " + stack);
+        removeAll(stack);
+        System.out.println("After removal: " + stack);
+    }
+}
