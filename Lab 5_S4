@@ -1,0 +1,20 @@
+function circularListsEqual(L, M):
+  
+  startL = L.tail
+  startM = M.tail
+  
+ 
+  for i from 0 to L.size() - 1:
+    currentL = startL.getNext()
+    currentM = startM.getNext()
+    for j from 0 to L.size() - 1:
+      if !currentL.getElement().equals(currentM.getElement()):
+        return false
+      currentL = currentL.getNext()
+      currentM = currentM.getNext()
+    
+    if currentL.getElement().equals(currentM.getElement()):
+      return true
+    
+    startL = startL.getNext()
+  return false
