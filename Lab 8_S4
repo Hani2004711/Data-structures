@@ -1,0 +1,25 @@
+import java.util.*;
+
+public class Josephus {
+    public static void main(String[] args) {
+        int n = 7;  // number of people
+        int k = 2;  // every kth person is executed
+
+        Queue<Integer> queue = new LinkedList<>();
+        for (int i = 1; i <= n; i++) {
+            queue.offer(i);
+        }
+
+        while (queue.size() > 1) {
+            for (int i = 0; i < k - 1; i++) {
+                int person = queue.poll();
+                queue.offer(person);
+            }
+            int executed = queue.poll();
+            System.out.println("Person " + executed + " is executed.");
+        }
+
+        int survivor = queue.poll();
+        System.out.println("Person " + survivor + " is the survivor.");
+    }
+}
