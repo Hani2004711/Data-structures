@@ -1,0 +1,26 @@
+public CircularlyLinkedList<E> clone() throws CloneNotSupportedException {
+
+  CircularlyLinkedList<E> clonedList = new CircularlyLinkedList<>();
+
+
+  if (isEmpty()) {
+    return clonedList;
+  }
+
+  
+  Node<E> originalNode = tail.getNext();
+  Node<E> clonedNode = new Node<>(originalNode.getElement(), null);
+  clonedList.tail = clonedNode;
+
+
+  originalNode = originalNode.getNext();
+  while (originalNode != tail.getNext()) {
+    clonedNode.setNext(new Node<>(originalNode.getElement(), null));
+    clonedNode = clonedNode.getNext();
+    originalNode = originalNode.getNext();
+  }
+
+  clonedNode.setNext(clonedList.tail);
+
+  return clonedList;
+}
