@@ -1,0 +1,28 @@
+public DoublyLinkedList<E> clone() throws CloneNotSupportedException {
+    
+    DoublyLinkedList<E> other = (DoublyLinkedList<E>) super.clone();
+    
+     
+    other.head = new Node<>(null, null, null);
+    other.tail = new Node<>(null, null, null);
+    other.head.next = other.tail;
+    other.tail.prev = other.head;
+    
+    
+    Node<E> current = head.next;
+    Node<E> otherCurrent = other.head.next;
+    while (current != tail) {
+        otherCurrent.element = current.element;
+        otherCurrent.next = new Node<>(null, otherCurrent, null);
+        otherCurrent = otherCurrent.next;
+        current = current.next;
+    }
+    
+    
+    otherCurrent.prev.next = null;
+    otherCurrent.prev = other.tail.prev;
+    other.tail.prev.next = other.tail;
+    other.size = size;
+    
+    return other;
+}
