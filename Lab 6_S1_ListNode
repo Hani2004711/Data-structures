@@ -1,0 +1,14 @@
+public ListNode<E> findMiddle() {
+
+  ListNode<E> slow = header.getNext();
+  ListNode<E> fast = header.getNext();
+
+  
+  while (fast != trailer && fast.getNext() != trailer) {
+    slow = slow.getNext();
+    fast = fast.getNext().getNext();
+  }
+
+  
+  return slow;
+}
