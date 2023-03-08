@@ -1,0 +1,9 @@
+public static <E> void transfer(Stack<E> S, Stack<E> T) {
+    Queue<E> buffer = new LinkedList<>();
+    while (!S.isEmpty()) {
+        buffer.offer(S.pop());
+    }
+    while (!buffer.isEmpty()) {
+        T.push(buffer.poll());
+    }
+}
