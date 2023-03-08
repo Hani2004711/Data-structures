@@ -1,0 +1,31 @@
+import java.util.*;
+
+public class RoundRobinScheduling {
+    public static void main(String[] args) {
+        int[] processes = {1, 2, 3, 4}; 
+        int[] burstTime = {5, 3, 8, 6}; 
+        int quantum = 2;
+
+        Queue<Integer> queue = new LinkedList<>();
+
+        for (int process : processes) {
+            queue.offer(process);
+        }
+
+        int time = 0;
+        while (!queue.isEmpty()) {
+            int process = queue.poll();
+            if (burstTime[process - 1] <= quantum) {
+                // Process completes within the time quantum
+                time += burstTime[process - 1];
+                System.out.println("Process " + process + " completed at time " + time);
+            } else {
+             
+                time += quantum;
+                burstTime[process - 1] -= quantum;
+                System.out.println("Process " + process + " interrupted at time " + time);
+                queue.offer(process);
+            }
+        }
+    }
+}
