@@ -1,0 +1,34 @@
+public void splitCircularList() {
+
+  CircularlyLinkedList<E> L1 = new CircularlyLinkedList<>();
+  CircularlyLinkedList<E> L2 = new CircularlyLinkedList<>();
+  Node<E> current = tail.getNext();
+
+  Node<E> lastL1 = null;
+  Node<E> lastL2 = null;
+  boolean addToL1 = true;
+  for (int i = 0; i < size(); i++) {
+    Node<E> newNode = new Node<>(current.getElement(), null);
+    if (addToL1) {
+      if (L1.isEmpty()) {
+        L1.tail = newNode;
+      } else {
+        lastL1.setNext(newNode);
+      }
+      lastL1 = newNode;
+    } else {
+      if (L2.isEmpty()) {
+        L2.tail = newNode;
+      } else {
+        lastL2.setNext(newNode);
+      }
+      lastL2 = newNode;
+    }
+    addToL1 = !addToL1;
+    current = current.getNext();
+  }
+
+
+  L1.tail.setNext(L2.tail.getNext());
+  L2.tail.setNext(L1.tail.getNext());
+}
