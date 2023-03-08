@@ -1,0 +1,19 @@
+public boolean equals(Object other) {
+  if (other == null || !(other instanceof DoublyLinkedList)) {
+    return false;
+  }
+  DoublyLinkedList<?> that = (DoublyLinkedList<?>) other;
+  if (this.size() != that.size()) {
+    return false;
+  }
+  ListNode<E> current1 = header.getNext();
+  ListNode<?> current2 = that.header.getNext();
+  while (current1 != trailer && current2 != that.trailer) {
+    if (!current1.getElement().equals(current2.getElement())) {
+      return false;
+    }
+    current1 = current1.getNext();
+    current2 = current2.getNext();
+  }
+  return true;
+}
