@@ -1,0 +1,34 @@
+public int size() {
+  if (tail == null) { // List is empty
+    return 0;
+  }
+  int count = 1; // Start counting from the head
+  Node<E> current = tail.getNext();
+  while (current != tail) {
+    count++;
+    current = current.getNext();
+  }
+  return count;
+}
+
+
+
+public boolean equals(Object o) {
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
+  CircularlyLinkedList<?> other = (CircularlyLinkedList<?>) o;
+  if (size() != other.size()) {
+    return false;
+  }
+  Node<E> current = tail.getNext();
+  Node<?> otherCurrent = other.tail.getNext();
+  while (current != tail) {
+    if (!current.getElement().equals(otherCurrent.getElement())) {
+      return false;
+    }
+    current = current.getNext();
+    otherCurrent = otherCurrent.getNext();
+  }
+  return true;
+}
